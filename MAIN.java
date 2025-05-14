@@ -84,8 +84,10 @@ public class MAIN {
                         break;
                 }
 
-            } else {
+            } else if (opcaoSelecionada == JOptionPane.CLOSED_OPTION || opcaoSelecionada == JOptionPane.CANCEL_OPTION) {
                 confirmarSaida();
+            } else {
+                JOptionPane.showMessageDialog(null, "Nenhum serviço selecionado.");
             }
         }
     }
