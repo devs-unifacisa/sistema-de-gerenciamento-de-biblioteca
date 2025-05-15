@@ -1,8 +1,9 @@
 import javax.swing.*;
 import java.util.ArrayList;
 
-public class MetodoExclusao(int codigoExclusao, ArrayList titulos, ArrayList statusLivros, ArrayList autores, ArrayList anos) {
+public class MetodoExclusao{
 
+    public static void excluindo(ArrayList<String> titulos, ArrayList<String> status, ArrayList<String> autores, ArrayList<Integer> anos){
     if(titulos.isEmpty()){
 
         JOptionPane.showMessageDialog(null,"Não há livros no momento.");
@@ -13,7 +14,7 @@ public class MetodoExclusao(int codigoExclusao, ArrayList titulos, ArrayList sta
         int codigoExclusao = Integer.parseInt(JOptionPane.showInputDialog(null,
                 "Digite o código do produto que deseja excluir:"));
 
-        if (codigoExclusao < titulos.size() || codigoExclusao > titulos.size() || statusLivros.get(codigoExclusao - 1).equalsIgnoreCase("Emprestado")) {
+        if (codigoExclusao < titulos.size() || codigoExclusao > titulos.size() || status.get(codigoExclusao - 1).equalsIgnoreCase("Emprestado")) {
 
             JOptionPane.showMessageDialog(null, "Código inválido ou livro já emprestado. Por favor, tente novamente");
 
@@ -28,7 +29,7 @@ public class MetodoExclusao(int codigoExclusao, ArrayList titulos, ArrayList sta
                 titulos.remove(codigoExclusao - 1);
                 autores.remove(codigoExclusao - 1);
                 anos.remove(codigoExclusao - 1);
-                statusLivros.remove(codigoExclusao - 1);
+                status.remove(codigoExclusao - 1);
 
                 JOptionPane.showMessageDialog(null, "Livro excluido com sucesso!");
 
@@ -39,6 +40,8 @@ public class MetodoExclusao(int codigoExclusao, ArrayList titulos, ArrayList sta
 
             }
 
+        }
+        
         }
 
     }
