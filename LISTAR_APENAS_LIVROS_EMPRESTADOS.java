@@ -2,7 +2,9 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class LISTAR_APENAS_LIVROS_EMPRESTADOS {
-    public static void Listar_apenas_livros_emprestados(ArrayList<String> titulos, ArrayList<String> autores, ArrayList<Integer> anoPublicacao, ArrayList<String> status, ArrayList<String> livrosEmprestados, ArrayList<String> livrosDevolvidos) {
+    public static void Listar_apenas_livros_emprestados(ArrayList<String> titulos, ArrayList<String> autores,
+            ArrayList<Integer> anoPublicacao, ArrayList<String> status, ArrayList<String> livrosEmprestados,
+            ArrayList<String> livrosDevolvidos) {
 
         String result = "";
         boolean encont = false;
