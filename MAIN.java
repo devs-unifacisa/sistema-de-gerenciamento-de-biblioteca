@@ -1,8 +1,17 @@
 import javax.swing.*;
 import java.awt.Font;
+import java.util.ArrayList;
 
 public class MAIN {
     public static void main(String[] args) {
+        ArrayList<String> titulos = new ArrayList<>();
+        ArrayList<String> autores = new ArrayList<>();
+        ArrayList<Integer> anoPublicacao = new ArrayList<>();
+        ArrayList<String> status = new ArrayList<>();
+        ArrayList<String> livrosEmprestados = new ArrayList<>();
+        ArrayList<String> livrosDevolvidos = new ArrayList<>();
+        ArrayList<String> leitores = new ArrayList<>();
+
         String[] opcoesMenu = {
                 "Cadastrar novo livro",
                 "Listar todos os livros",
@@ -51,34 +60,37 @@ public class MAIN {
                         // Listar todos os livros
                         break;
                     case 2:
-                        // Buscar livro por título
+                        LISTAR_POR_NOME.listarPorNome(titulos, autores, anoPublicacao, status, leitores);
                         break;
                     case 3:
-                        // Realizar empréstimo de livro
+                        EMPRESTAR_LIVRO.pegarLivroEmprestado(titulos, status, livrosEmprestados, livrosDevolvidos,
+                                leitores);
                         break;
                     case 4:
-                        // Registrar devolução de livro
+                        DEVOLVER_LIVRO.devolverLivro(titulos, status, livrosEmprestados, livrosDevolvidos, leitores);
                         break;
                     case 5:
                         // Excluir livro do sistema
                         break;
                     case 6:
-                        // Listar livros emprestados
+                        LISTAR_APENAS_LIVROS_EMPRESTADOS.Listar_apenas_livros_emprestados(titulos, autores,
+                                anoPublicacao, status, leitores);
                         break;
                     case 7:
                         // Contar livros disponíveis e emprestados
                         break;
                     case 8:
-                        // Sair
                         confirmarSaida();
                         break;
                     default:
                         JOptionPane.showMessageDialog(null, "Opção inválida.");
                         break;
                 }
-                
-            } else {
+
+            } else if (opcaoSelecionada == JOptionPane.CLOSED_OPTION || opcaoSelecionada == JOptionPane.CANCEL_OPTION) {
                 confirmarSaida();
+            } else {
+                JOptionPane.showMessageDialog(null, "Nenhum serviço selecionado.");
             }
         }
     }
