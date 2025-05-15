@@ -5,11 +5,18 @@ import java.util.ArrayList;
 public class MAIN {
     public static void main(String[] args) {
         ArrayList<String> titulos = new ArrayList<>();
-        // ArrayList<String> autores = new ArrayList<>();
-        // ArrayList<String> anoPublicacao = new ArrayList<>();
+        ArrayList<String> autores = new ArrayList<>();
+        ArrayList<Integer> anoPublicacao = new ArrayList<>();
         ArrayList<String> status = new ArrayList<>();
-        // ArrayList<String> livrosEmprestados = new ArrayList<>();
-        // ArrayList<String> livrosDevolvidos = new ArrayList<>();
+        ArrayList<String> livrosEmprestados = new ArrayList<>();
+        ArrayList<String> livrosDevolvidos = new ArrayList<>();
+
+        // Cadastra 1 livro como exemplo
+        titulos.add("Dom Quixote");
+        autores.add("Miguel de Cervantes");
+        anoPublicacao.add (1605);
+        status.add("Disponível");
+        livrosEmprestados.add("");
 
         String[] opcoesMenu = {
                 "Cadastrar novo livro",
@@ -59,7 +66,7 @@ public class MAIN {
                         // Listar todos os livros
                         break;
                     case 2:
-                        // Buscar livro por título
+                        LISTAR_POR_NOME.listarPorNome(titulos,autores,anoPublicacao,status,livrosEmprestados,livrosDevolvidos);
                         break;
                     case 3:
                         EMPRESTAR_LIVRO.pegarLivroEmprestado(titulos, status);
@@ -70,7 +77,7 @@ public class MAIN {
                         // Excluir livro do sistema
                         break;
                     case 6:
-                        // Listar livros emprestados
+                        LISTAR_APENAS_LIVROS_EMPRESTADOS.Listar_apenas_livros_emprestados(titulos,autores,anoPublicacao,status,livrosEmprestados,livrosDevolvidos);
                         break;
                     case 7:
                         // Contar livros disponíveis e emprestados
