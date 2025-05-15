@@ -1,8 +1,16 @@
 import javax.swing.*;
 import java.awt.Font;
+import java.util.ArrayList;
 
 public class MAIN {
     public static void main(String[] args) {
+        ArrayList<String> titulos = new ArrayList<>();
+        // ArrayList<String> autores = new ArrayList<>();
+        // ArrayList<String> anoPublicacao = new ArrayList<>();
+        ArrayList<String> status = new ArrayList<>();
+        // ArrayList<String> livrosEmprestados = new ArrayList<>();
+        // ArrayList<String> livrosDevolvidos = new ArrayList<>();
+
         String[] opcoesMenu = {
                 "Cadastrar novo livro",
                 "Listar todos os livros",
@@ -54,10 +62,9 @@ public class MAIN {
                         // Buscar livro por título
                         break;
                     case 3:
-                        // Realizar empréstimo de livro
+                        EMPRESTAR_LIVRO.pegarLivroEmprestado(titulos, status);
                         break;
                     case 4:
-                        // Registrar devolução de livro
                         break;
                     case 5:
                         // Excluir livro do sistema
@@ -76,9 +83,11 @@ public class MAIN {
                         JOptionPane.showMessageDialog(null, "Opção inválida.");
                         break;
                 }
-                
-            } else {
+
+            } else if (opcaoSelecionada == JOptionPane.CLOSED_OPTION || opcaoSelecionada == JOptionPane.CANCEL_OPTION) {
                 confirmarSaida();
+            } else {
+                JOptionPane.showMessageDialog(null, "Nenhum serviço selecionado.");
             }
         }
     }
