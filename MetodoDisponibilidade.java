@@ -1,6 +1,7 @@
 import javax.swing.*;
+import java.util.ArrayList;
 
-public class MetodoDisponibilidade {
+public class MetodoDisponibilidade(ArrayList titulos, ArrayList statusLivros){
 
     if(titulos.isEmpty()){
 
