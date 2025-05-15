@@ -1,6 +1,7 @@
 import javax.swing.*;
+import java.util.ArrayList;
 
-public class MetodoExclusao {
+public class MetodoExclusao(int codigoExclusao, ArrayList titulos, ArrayList statusLivros, ArrayList autores, ArrayList anos) {
 
     if(titulos.isEmpty()){
 
