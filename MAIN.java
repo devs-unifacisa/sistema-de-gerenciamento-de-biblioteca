@@ -73,8 +73,7 @@ public class MAIN {
                         // Excluir livro do sistema
                         break;
                     case 6:
-                        LISTAR_APENAS_LIVROS_EMPRESTADOS.Listar_apenas_livros_emprestados(titulos, autores,
-                                anoPublicacao, status, leitores);
+                        LISTAR_APENAS_LIVROS_EMPRESTADOS.Listar_apenas_livros_emprestados(titulos, autores, anoPublicacao, status, leitores);
                         break;
                     case 7:
                         // Contar livros disponíveis e emprestados
