@@ -3,9 +3,12 @@ import javax.swing.*;
 import java.util.*;
 
 public class LISTAR_POR_NOME {
-    public static void listarPorNome(ArrayList<String> titulos, ArrayList<String> autores,
-            ArrayList<Integer> anoPublicacao, ArrayList<String> status, ArrayList<String> livrosEmprestados,
-            ArrayList<String> livrosDevolvidos) {
+    public static void listarPorNome(
+            ArrayList<String> titulos,
+            ArrayList<String> autores,
+            ArrayList<Integer> anoPublicacao,
+            ArrayList<String> status,
+            ArrayList<String> leitores) {
 
         // Entrada do usuário
         String chamada = JOptionPane.showInputDialog("Digite o título do livro para buscar:");
@@ -26,7 +29,7 @@ public class LISTAR_POR_NOME {
                 resultado += "Status: " + status.get(item) + "\n";
 
                 if (status.get(item).equals("Emprestado")) {
-                    resultado += "Leitor: " + livrosEmprestados.get(item) + "\n";
+                    resultado += "Leitor: " + leitores.get(item) + "\n";
                 }
 
                 resultado += "--------------------------\n";

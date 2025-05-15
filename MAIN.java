@@ -10,6 +10,7 @@ public class MAIN {
         ArrayList<String> status = new ArrayList<>();
         ArrayList<String> livrosEmprestados = new ArrayList<>();
         ArrayList<String> livrosDevolvidos = new ArrayList<>();
+        ArrayList<String> leitores = new ArrayList<>();
 
         String[] opcoesMenu = {
                 "Cadastrar novo livro",
@@ -59,24 +60,26 @@ public class MAIN {
                         // Listar todos os livros
                         break;
                     case 2:
-                        LISTAR_POR_NOME.listarPorNome(titulos, autores, anoPublicacao, status, livrosEmprestados, livrosDevolvidos);
+                        LISTAR_POR_NOME.listarPorNome(titulos, autores, anoPublicacao, status, leitores);
                         break;
                     case 3:
-                        EMPRESTAR_LIVRO.pegarLivroEmprestado(titulos, status);
+                        EMPRESTAR_LIVRO.pegarLivroEmprestado(titulos, status, livrosEmprestados, livrosDevolvidos,
+                                leitores);
                         break;
                     case 4:
+                        DEVOLVER_LIVRO.devolverLivro(titulos, status, livrosEmprestados, livrosDevolvidos, leitores);
                         break;
                     case 5:
                         // Excluir livro do sistema
                         break;
                     case 6:
-                        LISTAR_APENAS_LIVROS_EMPRESTADOS.Listar_apenas_livros_emprestados(titulos, autores, anoPublicacao, status, livrosEmprestados, livrosDevolvidos);
+                        LISTAR_APENAS_LIVROS_EMPRESTADOS.Listar_apenas_livros_emprestados(titulos, autores,
+                                anoPublicacao, status, leitores);
                         break;
                     case 7:
                         // Contar livros disponíveis e emprestados
                         break;
                     case 8:
-                        // Sair
                         confirmarSaida();
                         break;
                     default:
