@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class MetodoExclusao {
+public class MetodoExclusao(codigoExclusao,titulos,statusLivros,autores,anos) {
 
     if(titulos.isEmpty()){
 
