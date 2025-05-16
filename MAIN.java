@@ -22,6 +22,7 @@ public class MAIN {
                 "Listar livros emprestados",
                 "Contar livros disponíveis e emprestados",
                 "Sair"
+
         };
 
         /*
@@ -54,10 +55,9 @@ public class MAIN {
 
                 switch (opcaoSelecionada) {
                     case 0:
-                        // Cadastrar novo livro
-                        break;
+                        Adicionar_Livro.adicionarLivro(titulos, autores, anoPublicacao, leitores,  status);                        break;
                     case 1:
-                        // Listar todos os livros
+                        Listar_Livros.listarLivros(titulos, autores, anoPublicacao);
                         break;
                     case 2:
                         LISTAR_POR_NOME.listarPorNome(titulos, autores, anoPublicacao, status, leitores);

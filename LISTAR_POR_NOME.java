@@ -9,10 +9,13 @@ public class LISTAR_POR_NOME {
             ArrayList<String> status,
             ArrayList<String> leitores) {
 
-        // Entrada do usuário
         String chamada = JOptionPane.showInputDialog("Digite o título do livro para buscar:");
 
-        if (chamada == null || chamada.trim().isEmpty()) {
+        if (chamada == null) {
+            return;
+        }
+
+        if (chamada.trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Você deve digitar um título para buscar.");
             return;
         }
@@ -33,11 +36,11 @@ public class LISTAR_POR_NOME {
                 resultado += "Ano: " + anoPublicacao.get(item) + "\n";
                 resultado += "Status: " + status.get(item) + "\n";
 
-                if (status.get(item).equals("Emprestado")) {
+                if (status.get(item).equalsIgnoreCase("Emprestado")) {
                     resultado += "Leitor: " + leitores.get(item) + "\n";
                 }
 
-                resultado += "________________________\n";
+                resultado += "________\n";
                 encontrou = true;
             }
         }
