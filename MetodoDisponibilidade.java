@@ -1,17 +1,17 @@
 import javax.swing.*;
 import java.util.ArrayList;
 
-public class MetodoDisponibilidade{
+public class MetodoDisponibilidade {
 
-    public static void disponiveisEmprestados(ArrayList<String> titulos, ArrayList<String> status){
+    public static void disponiveisEmprestados(ArrayList<String> titulos, ArrayList<String> status) {
 
-        if(titulos.isEmpty()){
+        if (titulos.isEmpty()) {
 
-            JOptionPane.showMessageDialog(null,"Não há livros no momento.");
+            JOptionPane.showMessageDialog(null, "Não há livros cadastrados.");
 
         }
 
-                    else {
+        else {
             int disponiveis = 0;
             int alugados = 0;
 
@@ -29,11 +29,12 @@ public class MetodoDisponibilidade{
 
             }
 
-            JOptionPane.showMessageDialog(null, String.format("Atualmente temos:\nLivros disponíveis: %s\nLivros alugados: %s\nTotal de livros: %s"
-                    ,disponiveis,alugados,titulos.size()));
-
-
+            JOptionPane.showMessageDialog(null,
+                    String.format(
+                            "Atualmente temos:\nLivros disponíveis: %s\nLivros emprestados: %s\nTotal de livros: %s",
+                            disponiveis, alugados, titulos.size()),
+                    "Lista de Livros:", JOptionPane.PLAIN_MESSAGE);
         }
-}
+    }
 
 }

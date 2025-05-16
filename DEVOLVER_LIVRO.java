@@ -6,14 +6,13 @@ public class DEVOLVER_LIVRO {
     public static void devolverLivro(
             ArrayList<String> titulos,
             ArrayList<String> status,
-            ArrayList<String> livrosEmprestados,
-            ArrayList<String> livrosDevolvidos,
             ArrayList<String> leitores) {
 
         int codigo;
 
         while (true) {
-            String entrada = JOptionPane.showInputDialog("Digite o código do livro:");
+            String entrada = JOptionPane.showInputDialog(null, "Digite o código do livro:", "Entrada de Dados",
+                    JOptionPane.QUESTION_MESSAGE);
 
             if (entrada == null) {
                 return;
@@ -23,7 +22,8 @@ public class DEVOLVER_LIVRO {
                 codigo = Integer.parseInt(entrada);
                 break;
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Código inválido. Digite apenas números.");
+                JOptionPane.showMessageDialog(null, "Código inválido. Digite apenas números.", "Entrada Inválida.",
+                        JOptionPane.ERROR_MESSAGE);
             }
         }
 
@@ -33,17 +33,12 @@ public class DEVOLVER_LIVRO {
             } else {
                 if (status.get(codigo - 1).equals("Emprestado")) {
 
-                    String titulo = titulos.get(codigo - 1);
                     String leitor = leitores.get(codigo - 1);
 
                     status.set(codigo - 1, "Disponível");
                     leitores.set(codigo - 1, "");
 
-                    livrosEmprestados.remove(titulo);
-
-                    livrosDevolvidos.add(titulo);
-
-                    JOptionPane.showMessageDialog(null, "Livro devolvido com sucesso por: " + leitor);
+                    JOptionPane.showMessageDialog(null, "Livro devolvido com sucesso por: " + leitor + ".");
 
                 } else {
                     JOptionPane.showMessageDialog(null, "Livro não está emprestado.");

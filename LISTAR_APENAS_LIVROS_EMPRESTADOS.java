@@ -14,17 +14,19 @@ public class LISTAR_APENAS_LIVROS_EMPRESTADOS {
 
         for (int i = 0; i < titulos.size(); i++) {
             if (status.get(i).equals("Emprestado")) {
+                result += "Código: " + (i + 1) + "\n";
                 result += "Título: " + titulos.get(i) + "\n";
                 result += "Autor: " + autores.get(i) + "\n";
                 result += "Ano: " + anoPublicacao.get(i) + "\n";
                 result += "Leitor: " + leitores.get(i) + "\n";
-                result += "--------------------------\n";
+                result += "________\n";
+
                 encont = true;
             }
         }
 
         if (encont) {
-            JOptionPane.showMessageDialog(null, result);
+            JOptionPane.showMessageDialog(null, result, "Lista de Livros:", JOptionPane.PLAIN_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "Nenhum livro emprestado no momento.");
         }

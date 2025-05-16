@@ -9,20 +9,29 @@ public class LISTAR_POR_NOME {
             ArrayList<String> status,
             ArrayList<String> leitores) {
 
-        String chamada = JOptionPane.showInputDialog("Digite o título do livro para buscar:");
-
-        if (chamada == null) {
-            return;
-        }
-
-        if (chamada.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Você deve digitar um título para buscar.");
-            return;
-        }
-
         if (titulos.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Não há livros cadastrados.");
             return;
+        }
+
+        String chamada;
+
+        while (true) {
+            chamada = JOptionPane.showInputDialog(null,
+                    "Digite o título do livro para buscar:",
+                    "Entrada de Dados", JOptionPane.QUESTION_MESSAGE);
+
+            if (chamada == null) {
+                return;
+            }
+
+            chamada = chamada.trim();
+
+            if (chamada.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha o campo para prosseguir.");
+            } else {
+                break;
+            }
         }
 
         String resultado = "";
@@ -46,9 +55,9 @@ public class LISTAR_POR_NOME {
         }
 
         if (encontrou) {
-            JOptionPane.showMessageDialog(null, resultado);
+            JOptionPane.showMessageDialog(null, resultado, "Lista de Livros:", JOptionPane.PLAIN_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Nenhum livro encontrado com esse título.");
+            JOptionPane.showMessageDialog(null, "Livro não encontrado.");
         }
     }
 }
