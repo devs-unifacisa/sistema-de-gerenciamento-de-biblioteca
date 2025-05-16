@@ -11,10 +11,31 @@ public class MetodoExclusao{
     }
 
                 else {
-        int codigoExclusao = Integer.parseInt(JOptionPane.showInputDialog(null,
-                "Digite o código do produto que deseja excluir:"));
+                    int codigo;
+                    
 
-        if (codigoExclusao < titulos.size() || codigoExclusao > titulos.size() || status.get(codigoExclusao - 1).equalsIgnoreCase("Emprestado")) {
+                while (true) {
+            String codigoExclusao = JOptionPane.showInputDialog("Digite o código do produto que deseja excluir:");
+
+            if (codigoExclusao == null) {
+                return;
+            }
+
+            try {
+                codigo = Integer.parseInt(codigoExclusao);
+                break;
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Código inválido. Digite apenas números.");
+            }
+        }
+
+        if(codigo == -1){
+
+            return;
+
+        }
+
+        if (codigo < titulos.size() || codigo > titulos.size() || status.get(codigo - 1).equalsIgnoreCase("Emprestado")) {
 
             JOptionPane.showMessageDialog(null, "Código inválido ou livro já emprestado. Por favor, tente novamente");
 
@@ -22,14 +43,14 @@ public class MetodoExclusao{
         else {
 
             int confirmacao = JOptionPane.showConfirmDialog(null,
-                    String.format("Tem certeza que deseja excluir o livro %s?", titulos.get(codigoExclusao - 1)));
+                    String.format("Tem certeza que deseja excluir o livro %s?", titulos.get(codigo - 1)));
 
             if (confirmacao == JOptionPane.YES_OPTION) {
 
-                titulos.remove(codigoExclusao - 1);
-                autores.remove(codigoExclusao - 1);
-                anos.remove(codigoExclusao - 1);
-                status.remove(codigoExclusao - 1);
+                titulos.remove(codigo - 1);
+                autores.remove(codigo - 1);
+                anos.remove(codigo - 1);
+                status.remove(codigo - 1);
 
                 JOptionPane.showMessageDialog(null, "Livro excluido com sucesso!");
 
@@ -41,8 +62,8 @@ public class MetodoExclusao{
             }
 
         }
-        
-        }
+
+    }
 
     }
 
