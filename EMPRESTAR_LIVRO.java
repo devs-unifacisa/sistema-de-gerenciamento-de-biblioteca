@@ -6,14 +6,13 @@ public class EMPRESTAR_LIVRO {
     public static void pegarLivroEmprestado(
             ArrayList<String> titulos,
             ArrayList<String> status,
-            ArrayList<String> livrosEmprestados,
-            ArrayList<String> livrosDevolvidos,
             ArrayList<String> leitores) {
 
         int codigo;
 
         while (true) {
-            String entrada = JOptionPane.showInputDialog("Digite o código do livro:");
+            String entrada = JOptionPane.showInputDialog(null, "Digite o código do livro:", "Entrada de Dados",
+                    JOptionPane.QUESTION_MESSAGE);
 
             if (entrada == null) {
                 return;
@@ -23,7 +22,8 @@ public class EMPRESTAR_LIVRO {
                 codigo = Integer.parseInt(entrada);
                 break;
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Código inválido. Digite apenas números.");
+                JOptionPane.showMessageDialog(null, "Código inválido. Digite apenas números.", "Entrada Inválida.",
+                        JOptionPane.ERROR_MESSAGE);
             }
         }
 
@@ -40,25 +40,21 @@ public class EMPRESTAR_LIVRO {
                         String leitor;
 
                         while (true) {
-                            leitor = JOptionPane.showInputDialog("Digite seu nome:");
+                            leitor = JOptionPane.showInputDialog(null, "Digite seu nome:", "Entrada de Dados",
+                                    JOptionPane.QUESTION_MESSAGE);
 
                             if (leitor.length() > 0) {
                                 break;
                             }
 
-                            JOptionPane.showMessageDialog(null, "Erro. Nome não informado.\nTente novamente.");
+                            JOptionPane.showMessageDialog(null, "Erro. Nome não informado.\nTente novamente.",
+                                    "Entrada Inválida.", JOptionPane.ERROR_MESSAGE);
                         }
-
-                        String titulo = titulos.get(codigo - 1);
 
                         status.set(codigo - 1, "Emprestado");
                         leitores.set(codigo - 1, leitor);
 
-                        livrosDevolvidos.remove(titulo);
-
-                        livrosEmprestados.add(titulo);
-
-                        JOptionPane.showMessageDialog(null, "Emprestimo solicitado com sucesso.");
+                        JOptionPane.showMessageDialog(null, "Emprestimo realizado com sucesso.");
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Livro não está disponível.");

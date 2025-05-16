@@ -8,9 +8,13 @@ public class MAIN {
         ArrayList<String> autores = new ArrayList<>();
         ArrayList<Integer> anoPublicacao = new ArrayList<>();
         ArrayList<String> status = new ArrayList<>();
-        ArrayList<String> livrosEmprestados = new ArrayList<>();
-        ArrayList<String> livrosDevolvidos = new ArrayList<>();
         ArrayList<String> leitores = new ArrayList<>();
+
+        titulos.add("As Crônicas de Nárnia");
+        autores.add("C. S. Lewis");
+        anoPublicacao.add(1949);
+        status.add("Disponível");
+        leitores.add("");
 
         String[] opcoesMenu = {
                 "Cadastrar novo livro",
@@ -55,25 +59,26 @@ public class MAIN {
 
                 switch (opcaoSelecionada) {
                     case 0:
-                        Adicionar_Livro.adicionarLivro(titulos, autores, anoPublicacao, leitores,  status);                        break;
+                        Adicionar_Livro.adicionarLivro(titulos, autores, anoPublicacao, leitores, status);
+                        break;
                     case 1:
-                        Listar_Livros.listarLivros(titulos, autores, anoPublicacao);
+                        Listar_Livros.listarLivros(titulos, autores, anoPublicacao, status);
                         break;
                     case 2:
                         LISTAR_POR_NOME.listarPorNome(titulos, autores, anoPublicacao, status, leitores);
                         break;
                     case 3:
-                        EMPRESTAR_LIVRO.pegarLivroEmprestado(titulos, status, livrosEmprestados, livrosDevolvidos,
-                                leitores);
+                        EMPRESTAR_LIVRO.pegarLivroEmprestado(titulos, status, leitores);
                         break;
                     case 4:
-                        DEVOLVER_LIVRO.devolverLivro(titulos, status, livrosEmprestados, livrosDevolvidos, leitores);
+                        DEVOLVER_LIVRO.devolverLivro(titulos, status, leitores);
                         break;
                     case 5:
-                        MetodoExclusao.excluindo(titulos,status,autores,anoPublicacao,leitores);
+                        MetodoExclusao.excluindo(titulos, status, autores, anoPublicacao, leitores);
                         break;
                     case 6:
-                        LISTAR_APENAS_LIVROS_EMPRESTADOS.Listar_apenas_livros_emprestados(titulos, autores, anoPublicacao, status, leitores);
+                        LISTAR_APENAS_LIVROS_EMPRESTADOS.Listar_apenas_livros_emprestados(titulos, autores,
+                                anoPublicacao, status, leitores);
                         break;
                     case 7:
                         MetodoDisponibilidade.disponiveisEmprestados(titulos, status);
