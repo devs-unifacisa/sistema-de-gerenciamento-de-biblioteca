@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class MetodoExclusao{
 
-    public static void excluindo(ArrayList<String> titulos, ArrayList<String> status, ArrayList<String> autores, ArrayList<Integer> anos){
+    public static void excluindo(ArrayList<String> titulos, ArrayList<String> status, ArrayList<String> autores, ArrayList<Integer> anos, ArrayList<String> leitores){
     if(titulos.isEmpty()){
 
         JOptionPane.showMessageDialog(null,"Não há livros no momento.");
@@ -29,13 +29,7 @@ public class MetodoExclusao{
             }
         }
 
-        if(codigo == -1){
-
-            return;
-
-        }
-
-        if (codigo < titulos.size() || codigo > titulos.size() || status.get(codigo - 1).equalsIgnoreCase("Emprestado")) {
+        if (codigo < 1 || codigo > titulos.size() || status.get(codigo - 1).equalsIgnoreCase("Emprestado")) {
 
             JOptionPane.showMessageDialog(null, "Código inválido ou livro já emprestado. Por favor, tente novamente");
 
@@ -51,6 +45,8 @@ public class MetodoExclusao{
                 autores.remove(codigo - 1);
                 anos.remove(codigo - 1);
                 status.remove(codigo - 1);
+                leitores.remove(codigo - 1);
+                
 
                 JOptionPane.showMessageDialog(null, "Livro excluido com sucesso!");
 
@@ -62,6 +58,14 @@ public class MetodoExclusao{
             }
 
         }
+        
+        if(codigo == -1){
+
+            return;
+
+        }
+
+        
 
     }
 
