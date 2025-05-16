@@ -70,7 +70,7 @@ public class MAIN {
                         DEVOLVER_LIVRO.devolverLivro(titulos, status, livrosEmprestados, livrosDevolvidos, leitores);
                         break;
                     case 5:
-                        MetodoExclusao.excluindo(titulos,status,autores,anoPublicacao);
+                        MetodoExclusao.excluindo(titulos,status,autores,anoPublicacao,leitores);
                         break;
                     case 6:
                         LISTAR_APENAS_LIVROS_EMPRESTADOS.Listar_apenas_livros_emprestados(titulos, autores, anoPublicacao, status, leitores);
